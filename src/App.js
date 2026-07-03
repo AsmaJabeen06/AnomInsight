@@ -1289,41 +1289,6 @@ const PageReports = ({ state, alerts }) => {
         </Panel>
       </div>
 
-      {/* phase timeline */}
-      <Panel title="🗓️ Project Phase Timeline">
-        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-          {[
-            { phase: "Phase 1", desc: "Requirement Analysis",             dur: "Week 1", done: true  },
-            { phase: "Phase 2", desc: "Log Collection & Dataset Prep",    dur: "Week 2", done: true  },
-            { phase: "Phase 3", desc: "Data Preprocessing",               dur: "Week 3", done: true  },
-            { phase: "Phase 4", desc: "ML Model Development",             dur: "Week 4", done: true  },
-            { phase: "Phase 5", desc: "Testing & Evaluation",             dur: "Week 5", done: true  },
-            { phase: "Phase 6", desc: "Dashboard Integration & Docs",     dur: "Week 6", done: false },
-          ].map((p, i, arr) => (
-            <div key={p.phase} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 32, flexShrink: 0 }}>
-                <div style={{
-                  width: 28, height: 28, borderRadius: "50%",
-                  background: p.done ? `${C.green}20` : `${C.blue}15`,
-                  border: `2px solid ${p.done ? C.green : C.blue}`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 13, flexShrink: 0,
-                }}>{p.done ? "✓" : "⏳"}</div>
-                {i < arr.length - 1 && (
-                  <div style={{ width: 2, height: 28, background: p.done ? `${C.green}40` : C.border, marginTop: 2 }} />
-                )}
-              </div>
-              <div style={{ paddingBottom: i < arr.length - 1 ? 14 : 0, paddingTop: 4 }}>
-                <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                  <span style={{ fontWeight: 700, color: p.done ? C.bright : C.muted, fontSize: 13 }}>{p.phase}</span>
-                  <span style={{ fontSize: 10, color: p.done ? C.green : C.blue, background: p.done ? `${C.green}12` : `${C.blue}12`, padding: "2px 8px", borderRadius: 10 }}>{p.dur}</span>
-                </div>
-                <div style={{ fontSize: 12, color: C.muted, marginTop: 2 }}>{p.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Panel>
     </div>
   );
 };
